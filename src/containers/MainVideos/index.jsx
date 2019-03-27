@@ -28,7 +28,7 @@ class MainVideos extends React.Component {
     this.props.turnFavoriteRequest(id, !isFavourite, () => {
       this.props.toggleLikeVideo(id);
     });
-    this.props.toggleLikeVideo(id);
+    // this.props.toggleLikeVideo(id);
   }
 
   changeListStyle = (name) => {
