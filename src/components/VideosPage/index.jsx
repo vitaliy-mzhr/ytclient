@@ -37,7 +37,6 @@ class VideosPage extends React.Component {
       mainPage
     } = this.props;
     const { activeListStyle } = this.state;
-
     return (
       <>
         <Grid>
@@ -60,7 +59,7 @@ class VideosPage extends React.Component {
           activeListStyle={activeListStyle}
         />}
 
-        {!videos && !mainPage && <EmptyVideoGroup />}
+        {!isLoading && !videos.length && <EmptyVideoGroup mainPage={mainPage} />}
       </>
     )
   }

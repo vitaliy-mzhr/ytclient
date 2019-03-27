@@ -28,6 +28,7 @@ const request = (method, path, params, data = {}) => {
       } else if (err.request && err.request.data) {
         return reject(err.request);
       }
+      return reject(err);
     }));
 };
 
