@@ -1,10 +1,8 @@
 import React from 'react';
-import { Card, Icon, Item, Button } from 'semantic-ui-react';
+import { Card, Item } from 'semantic-ui-react';
+
 import VideoCard from '../VideoCard';
-import EmptyVideoGroup from '../EmptyVideoGroup';
 import VideoItem from '../VideoItem';
-
-
 
 const VideoGroupCard = ({ videos, addToFavorite, activeListStyle }) => (
   <>

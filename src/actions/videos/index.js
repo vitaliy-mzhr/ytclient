@@ -14,7 +14,7 @@ export const fetchVideosFailure = () => ({
 });
 
 export const toggleLikeVideo = (id) => ({
-  type: "TOGGLE_VIDEO_FAVORITE",
+  type: videosTypes.TOGGLE_VIDEO_FAVORITE,
   payload: id
 });
 

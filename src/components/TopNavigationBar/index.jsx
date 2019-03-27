@@ -19,13 +19,17 @@ class TopNavigationBar extends React.Component {
             exact
             activeClassName="ytc-nav_selected"
             to="/"
-          >Main</NavLink>
+          >
+            Main
+          </NavLink>
         </Menu.Item>
         <Menu.Item>
           <NavLink
             activeClassName="ytc-nav_selected"
             to="/favorites"
-          >Favorites</NavLink>
+          >
+            Favorites
+          </NavLink>
         </Menu.Item>
       </Menu>
     )

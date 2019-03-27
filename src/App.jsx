@@ -1,6 +1,7 @@
 import React from 'react';
-import routes from './routes';
 import { ConnectedRouter } from 'connected-react-router';
+
+import routes from './routes';
 
 const App = ({ history }) => {
   return (

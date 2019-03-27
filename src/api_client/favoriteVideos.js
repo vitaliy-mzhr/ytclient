@@ -15,7 +15,6 @@ export const addToFavorite = (id, isFavourite) => {
   const config = {
     "isFavourite": isFavourite
   }
-  console.log(id, isFavourite);
   return http.patch(`videos/${id}`, "", config);
 };
 
@@ -27,7 +26,6 @@ export const toggleFavorite = (id, isFavourite) => {
   const config = {
     "isFavourite": isFavourite
   }
-  console.log(id, isFavourite);
   return http.patch(`videos/${id}`, "", config);
 };
 
@@ -38,7 +36,6 @@ export const addToFavoriteRequest = (id, isFavourite, callback) => {
 
     return addToFavorite(id, isFavourite)
       .then((response) => {
-        console.log(response);
         dispatch(addFavoriteSuccess(response));
         callback();
       })
@@ -55,7 +52,6 @@ export const turnFavoriteRequest = (id, isFavourite, callback) => {
 
     return toggleFavorite(id, isFavourite)
       .then((response) => {
-        console.log(response);
         dispatch(toggleFavoriteSuccess(response));
         callback();
       })

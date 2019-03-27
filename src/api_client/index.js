@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { config } from '../app.config';
 
+axios.defaults.withCredentials = true;
+
 export const BASE_API_URL = `${config.url}/`;
 
 const request = (method, path, params, data = {}) => {
@@ -12,7 +14,7 @@ const request = (method, path, params, data = {}) => {
     data,
     headers,
     url: path,
-    params: params,
+    params,
     baseURL: BASE_API_URL,
   })
     .then(response => response.data ? response.data : response)

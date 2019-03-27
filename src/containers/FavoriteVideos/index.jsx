@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { getFavoritesRequest } from '../../api_client/favoriteVideos';
+import { removeLikeFavoriteVideo } from '../../actions/favoriteVideos';
+import { getFavoritesRequest, turnFavoriteRequest } from '../../api_client/favoriteVideos';
 import VideosPage from '../../components/VideosPage';
 
 class FavoriteVideos extends React.Component {
@@ -10,36 +11,24 @@ class FavoriteVideos extends React.Component {
   componentDidMount() {
     this.props.getFavoritesRequest();
   }
-  changeListStyle = (name) => {
-    this.setState({ activeListStyle: name })
-  }
+
   render() {
-    const { favoriteVideos, isLoading } = this.props;
-    const { activeListStyle } = this.state;
+    const {
+      favoriteVideos,
+      isLoading,
+      toggleLikeVideo,
+      turnFavoriteRequest,
+      removeLikeFavoriteVideo
+    } = this.props;
+
     return (
       <>
-        {/* <Grid>
-          {favoriteVideos && <Grid.Column floated='right' width={2}>
-            <DisplayListIcons changeListStyle={this.changeListStyle} />
-          </Grid.Column>}
-        </Grid>
-
-        {isLoading && <Preloader />}
-
-        {!isLoading && favoriteVideos ? <VideoGroupCard
-          videos={favoriteVideos}
-          addToFavorite={this.addToFavorite}
-        // activeListStyle={activeListStyle}
-        /> : <EmptyVideoGroup />} */}
-
-
         <VideosPage
           isLoading={isLoading}
-          activeListStyle={activeListStyle}
           videos={favoriteVideos}
-          addToFavorite={this.addToFavorite}
-          handleKeyPress={this.handleKeyPress}
-          changeListStyle={this.changeListStyle}
+          toggleLikeVideo={toggleLikeVideo}
+          turnFavoriteRequest={turnFavoriteRequest}
+          removeLikeFavoriteVideo={removeLikeFavoriteVideo}
         />
       </>
     )
@@ -47,7 +36,7 @@ class FavoriteVideos extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { isLoading, favoriteVideos, errors } = state.videosState;
+  const { isLoading, favoriteVideos, errors } = state.favoriteVideosState;
   return {
     isLoading,
     favoriteVideos,
@@ -55,4 +44,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, { getFavoritesRequest })(FavoriteVideos);
+export default connect(mapStateToProps, { getFavoritesRequest, turnFavoriteRequest, removeLikeFavoriteVideo })(FavoriteVideos);

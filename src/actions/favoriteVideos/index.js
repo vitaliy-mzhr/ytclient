@@ -38,3 +38,8 @@ export const fetchFavoritesSuccess = (params) => ({
 export const fetchFavoritesFailure = () => ({
   type: videosTypes.FETCH_FAVORITES_FAILURE,
 });
+
+export const removeLikeFavoriteVideo = (id) => ({
+  type: videosTypes.REMOVE_VIDEO_FAVORITE,
+  payload: id
+});

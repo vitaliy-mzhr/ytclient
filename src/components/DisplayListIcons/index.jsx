@@ -5,13 +5,11 @@ export default class DisplayListIcons extends Component {
   state = { activeItem: "first"}
 
   handleItemClick = (e, { name }) => {
-    console.log(e, { name })
     this.setState({ activeItem: name })
     this.props.changeListStyle(name);
   }
 
   render() {
-    const { changeListStyle } = this.props;
     const { activeItem } = this.state;
 
     return (

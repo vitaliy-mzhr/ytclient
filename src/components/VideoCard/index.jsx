@@ -5,9 +5,8 @@ import moment from 'moment';
 import './styles.scss';
 
 const VideoCard = ({ videoInfo, addToFavorite }) => {
-  console.log(videoInfo)
   const { thumbs, title, publishedAt, description, isFavourite } = videoInfo;
-  console.log(publishedAt, isFavourite);
+  
   return (
     <Card>
       {thumbs ? <Image src={thumbs.medium} /> : ""}

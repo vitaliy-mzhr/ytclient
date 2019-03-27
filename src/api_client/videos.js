@@ -5,7 +5,6 @@ export const fetchVideos = (query) => {
   return http.get('videos/search', query);
 };
 
-
 export const getVideosRequest = (query) => {
   return (dispatch) => {
     dispatch(fetchVideosRequest());

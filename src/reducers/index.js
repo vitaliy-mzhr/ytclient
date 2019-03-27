@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
+
 import videosReducer from './videos/index';
 import favoriteVideosReducer from './favoriteVideos/index';
 

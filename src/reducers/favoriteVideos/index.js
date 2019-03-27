@@ -31,23 +31,46 @@ export default (state = initialState, action) => {
     case favoriteVideosTypes.TOGGLE_FAVORITE_REQUEST:
       return {
         ...state,
-        isLoading: true,
       };
 
     case favoriteVideosTypes.TOGGLE_FAVORITE_SUCCESS:
       return {
         ...state,
-        isLoading: false,
         errors: null,
-        favoriteVideos: { ...state.favoriteVideos, payload },
       };
 
     case favoriteVideosTypes.TOGGLE_FAVORITE_FAILURE:
       return {
         ...state,
+        errors: action.payload,
+      };
+
+    case favoriteVideosTypes.FETCH_FAVORITES_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case favoriteVideosTypes.FETCH_FAVORITES_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        errors: null,
+        favoriteVideos: action.payload,
+      };
+
+    case favoriteVideosTypes.FETCH_FAVORITES_FAILURE:
+      return {
+        ...state,
         isLoading: false,
         errors: action.payload,
       };
+
+    case favoriteVideosTypes.REMOVE_VIDEO_FAVORITE:
+      return {
+        ...state,
+        favoriteVideos: state.favoriteVideos.filter((item) => (action.payload !== item.id))
+      }
 
     default:
       return state
